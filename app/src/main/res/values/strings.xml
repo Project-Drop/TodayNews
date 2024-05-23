@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TodayNews</string>
+    <string name="today_news">Today News</string>
+    <string name="get_daily_news_updates">Get Daily News Updates</string>
+    <string name="enter_you_username">Enter you username</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="SignIn">
+        <u>SignIn</u>
+    </string>
+    <string name="register">Register</string>
+    <string name="enter_your_name">Enter your name</string>
 </resources>

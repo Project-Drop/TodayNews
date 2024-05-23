@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "891796038231",
+    "project_id": "todaynews-981af",
+    "storage_bucket": "todaynews-981af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891796038231:android:5379516240bbaba1d43912",
+        "android_client_info": {
+          "package_name": "com.example.todaynews"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZyUWP1cAK5XmoxKiqgl23rCvpZPNrSLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
