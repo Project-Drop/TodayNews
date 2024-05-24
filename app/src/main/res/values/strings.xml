@@ -10,4 +10,11 @@
     </string>
     <string name="register">Register</string>
     <string name="enter_your_name">Enter your name</string>
+    <string name="news">News</string>
+    <string name="profile">Profile</string>
+    <string name="report">Report</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="report_fragment">Report Fragment</string>
+    <string name="profile_fragment">Profile Fragment</string>
+    <string name="news_fragment">News Fragment</string>
 </resources>
