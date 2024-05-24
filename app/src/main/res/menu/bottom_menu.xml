@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/Report"
-        android:title="@string/report"
+        android:title="@string/feedback"
         android:icon="@drawable/baseline_chat_24" />
 
 </menu>
