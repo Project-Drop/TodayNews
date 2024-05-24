@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         binding.register.setOnClickListener {
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
             val name = binding.name.text.toString()
             val email = binding.mail.text.toString()
             val password = binding.password.text.toString()
@@ -63,6 +63,11 @@ class MainActivity : AppCompatActivity() {
 //                        updateUI(null)
                     }
                 }
+        }
+
+        binding.sign.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
         }
     }
 
