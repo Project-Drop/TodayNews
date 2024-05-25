@@ -1,5 +1,6 @@
 package com.example.todaynews
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -36,28 +37,15 @@ class MainActivity : AppCompatActivity() {
             val password = binding.password.text.toString()
             val users = Users(name, email)
 
+//            val alert = AlertDialog.Builder(this)
+//            alert.setTitle("Alert")
+//            alert.setMessage("Check email to verify")
+//            alert.setPositiveButton("Yes", DialogInterface.OnClickListener{dialog, i ->
+//                // code
+//            })
+//            alert.show()
 
-            val actionCodeSettings = actionCodeSettings {
-                // URL you want to redirect back to. The domain (www.example.com) for this
-                // URL must be whitelisted in the Firebase Console.
-                url = "https://www.example.com/finishSignUp?cartId=1234"
-                // This must be true
-                handleCodeInApp = true
-                setIOSBundleId("com.example.ios")
-                setAndroidPackageName(
-                    "com.example.android",
-                    true, // installIfNotAvailable
-                    "12", // minimumVersion
-                )
-            }
-            Firebase.auth.sendSignInLinkToEmail(email, actionCodeSettings)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val alertDialog: AlertDialog? = null
-                        alertDialog?.setMessage("Email sent to your mail please check for authentication")
-                        alertDialog?.show()
-                    }
-                }
+
 //            creating user object using Users class => Users.kt file
 
             auth.createUserWithEmailAndPassword(email, password)
@@ -74,11 +62,7 @@ class MainActivity : AppCompatActivity() {
                             )
                             .set(users)
                             .addOnSuccessListener { documentReference ->
-                                Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this,HomePageActivity::class.java).apply {
-                                    Intent.FLAG_ACTIVITY_CLEAR_TOP
-                                }
-                                startActivity(intent)
+                                sendVerification()
                             }
                             .addOnFailureListener { e ->
                                 Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
@@ -120,5 +104,40 @@ class MainActivity : AppCompatActivity() {
         password.text?.clear()
     }
 
+    private fun sendVerification() {
+        Toast.makeText(applicationContext, "Function Executed", Toast.LENGTH_SHORT).show()
+        val mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
+
+        user?.sendEmailVerification()?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Please verify email")
+                    .setMessage("Email sent")
+                    .setCancelable(false) // Optional: Set whether dialog can be canceled by tapping outside
+
+                // Set positive button and its click listener
+                builder.setPositiveButton("OK") { dialog, which ->
+                    if(Firebase.auth.currentUser?.isEmailVerified == true) {
+                        // redirect to HomePageActivity
+                        Toast.makeText(this, "User Registered", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, HomePageActivity::class.java).apply {
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        }
+                        startActivity(intent)
+                    } else {
+                        builder.show()
+                    }
+                }
+                val alertDialog = builder.create()
+                alertDialog.show()
+                // Email verification link sent successfully
+                Toast.makeText(applicationContext, "Verification email sent", Toast.LENGTH_SHORT).show()
+            } else {
+                // Failed to send verification email
+                Toast.makeText(applicationContext, "Failed to send verification email", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
 }

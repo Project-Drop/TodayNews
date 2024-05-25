@@ -27,4 +27,10 @@
     <string name="share_your_app_experience">Share your app experience</string>
     <string name="excellent">Excellent</string>
     <string name="feedback">Feedback</string>
+    <string name="user_avatar">User Avatar</string>
+    <string name="user_email">User Email</string>
+    <string name="user_name">User Name</string>
+    <string name="user_profile">User Profile</string>
+    <string name="update">Update</string>
+    <string name="edit">Edit</string>
 </resources>

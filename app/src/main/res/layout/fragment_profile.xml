@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_marginTop="280dp"
+    android:layout_gravity="center_horizontal"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <!--    main heading-->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/profile_fragment" />
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_profile"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        />
 
-</FrameLayout>
+    <!-- Avatar placeholder (circular icon) -->
+    <ImageView
+        android:id="@+id/avatarImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/baseline_account_circle_24"
+        android:contentDescription="@string/user_avatar" />
+
+    <!-- User Name field -->
+    <EditText
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:hint="@string/user_name"
+        android:inputType="text"
+        android:padding="8dp"
+        android:gravity="center"
+        android:enabled="false"
+        android:textColor="@color/black"
+        />
+
+    <!-- User Email field -->
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/user_email"
+        android:autofillHints=""
+        android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:gravity="center"
+        android:enabled="false"
+        android:textColor="@color/black"
+        />
+
+    <!--    update name-->
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/black"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
