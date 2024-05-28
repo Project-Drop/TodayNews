@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.TodayNews" parent="Base.Theme.TodayNews" />
+    
+    <style name="RoundedCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+    </style>
 </resources>
