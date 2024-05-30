@@ -18,6 +18,10 @@
         <activity
             android:name=".SignInActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

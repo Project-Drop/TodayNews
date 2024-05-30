@@ -1,5 +1,6 @@
 package com.example.todaynews
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,13 @@ class CustomAdapter(private val mList: List<ItemViewModel>) : RecyclerView.Adapt
 
         // sets the text to the textview from our itemHolder class
         holder.textView.text = itemViewModel.heading
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, WebViewActivity::class.java).apply {
+                putExtra("URL", itemViewModel.link)
+            }
+            context.startActivity(intent)
+        }
     }
 
     // return the number of the items in the list
@@ -37,5 +45,6 @@ class CustomAdapter(private val mList: List<ItemViewModel>) : RecyclerView.Adapt
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.Heading)
+
     }
 }
