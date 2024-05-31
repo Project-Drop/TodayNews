@@ -71,4 +71,7 @@ dependencies {
     implementation(libs.news.api.kotlin)
 //    implementation ("io.reactivex.rxjava3:rxjava:3.1.4")
     implementation("io.reactivex.rxjava2:rxjava:2.0.1")
+
+    implementation("com.github.bumptech.glide:glide:4.14.2") // Use the latest version
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2") // Use the latest version
 }

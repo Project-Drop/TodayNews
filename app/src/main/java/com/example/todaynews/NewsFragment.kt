@@ -42,13 +42,18 @@ class NewsFragment : Fragment() {
             if (document != null && document.exists()) {
                 val headlines = document.get("headline") as? List<String> ?: listOf()
                 val links = document.get("links") as? List<String> ?: listOf()
-
+                val time = document.get("Time") as? List<String> ?: listOf()
+                val source = document.get("Source") as? List<String> ?: listOf()
+                val image = document.get("Images") as? List<String> ?: listOf()
                 // Combine headlines and links into ItemViewModel instances
                 for (i in headlines.indices) {
                     val heading = headlines[i]
                     val link = if (i < links.size) links[i] else ""
-                    data.add(ItemViewModel(heading, link))
-                    println("Heading: $heading, Link: $link")
+                    val time = if (i < time.size) time[i] else ""
+                    val source = if (i < source.size) source[i] else ""
+                    val image = if (i < image.size) image[i] else ""
+                    data.add(ItemViewModel(heading, link, time, source, image))
+                    println("Heading: $heading, Link: $link",)
                 }
 
                 // This will pass the ArrayList to our Adapter
